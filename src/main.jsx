@@ -1,8 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Analytics } from '@vercel/analytics/react'
+import { inject } from '@vercel/analytics'
 import './index.css'
 import App from './App.jsx'
+
+inject()
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -23,6 +25,5 @@ window.addEventListener('pageshow', (event) => {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <Analytics />
   </StrictMode>,
 )
